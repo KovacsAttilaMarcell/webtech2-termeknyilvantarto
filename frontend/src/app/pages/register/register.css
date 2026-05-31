@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -32,6 +32,17 @@ mat-card-title {
     color: #1e3c72;
 }
 
+.subtitle {
+    text-align: center;
+
+    margin-top: -15px;
+    margin-bottom: 30px;
+
+    color: #666;
+
+    font-weight: 400;
+}
+
 mat-form-field {
     width: 100%;
     margin-bottom: 20px;
@@ -58,17 +69,6 @@ button:hover {
         0 5px 15px rgba(0,0,0,0.2);
 }
 
-.subtitle {
-    text-align: center;
-
-    margin-top: -15px;
-    margin-bottom: 30px;
-
-    color: #666;
-
-    font-weight: 400;
-}
-
 .error {
     color: #c62828;
     text-align: center;
@@ -76,19 +76,19 @@ button:hover {
     font-weight: 500;
 }
 
-.register-text {
+.login-text {
     text-align: center;
     margin-top: 22px;
     color: #666;
     font-size: 15px;
 }
 
-.register-text a {
+.login-text a {
     color: #1e3c72;
     font-weight: 700;
     text-decoration: none;
 }
 
-.register-text a:hover {
+.login-text a:hover {
     text-decoration: underline;
 }

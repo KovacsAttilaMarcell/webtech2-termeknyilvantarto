@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="register-container">
 
     <mat-card>
 
@@ -7,7 +7,7 @@
         </mat-card-title>
 
         <h2 class="subtitle">
-            Bejelentkezés
+            Regisztráció
         </h2>
 
         <mat-card-content>
@@ -22,18 +22,24 @@
                 <input matInput type="password" [(ngModel)]="password">
             </mat-form-field>
 
-            <button mat-raised-button color="primary" (click)="login()">
-                Belépés
-            </button>
+            <mat-form-field appearance="outline">
+                <mat-label>Jelszó megerősítése</mat-label>
+                <input matInput type="password" [(ngModel)]="confirmPassword">
+            </mat-form-field>
 
-            <p class="register-text">
-                Még nincs fiókod?
-                <a routerLink="/register">Regisztráció</a>
-            </p>
+            <button mat-raised-button color="primary" (click)="register()">
+                Regisztráció
+            </button>
 
             <p class="error" *ngIf="errorMessage">
                 {{ errorMessage }}
             </p>
+
+            <p class="login-text">
+                Már van fiókod?
+                <a routerLink="/">Bejelentkezés</a>
+            </p>
+
         </mat-card-content>
 
     </mat-card>
