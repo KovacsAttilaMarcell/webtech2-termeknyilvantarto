@@ -89,10 +89,23 @@
     </mat-card>
 
     <mat-card class="table-card">
+    <div class="table-header">
         <mat-card-title>Termékek listája</mat-card-title>
 
-        <mat-card-content>
-            <table mat-table [dataSource]="products" class="mat-elevation-z2">
+        <mat-form-field appearance="outline" class="category-filter">
+            <mat-label>Kategória szűrése</mat-label>
+            <mat-select [(ngModel)]="selectedCategory">
+                <mat-option value="">Összes kategória</mat-option>
+
+                <mat-option *ngFor="let category of categories" [value]="category">
+                    {{ category }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="filteredProducts" class="mat-elevation-z2">
 
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef>Név</th>

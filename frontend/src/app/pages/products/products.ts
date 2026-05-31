@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 import { Product, ProductService } from '../../services/product';
 import { AuthService } from '../../services/auth';
@@ -27,14 +28,17 @@ import { AuthService } from '../../services/auth';
     MatButtonModule,
     MatTableModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   templateUrl: './products.html',
   styleUrl: './products.css'
 })
+
 export class Products implements OnInit {
   username: string | null = '';
   products: Product[] = [];
+  selectedCategory: string = '';
   displayedColumns: string[] = ['name', 'category', 'price', 'stock', 'actions'];
 
   product: Product = {
@@ -116,18 +120,36 @@ export class Products implements OnInit {
   }
 
   get totalProducts(): number {
-  return this.products.length;
+  return this.filteredProducts.length;
+}
+
+get categories(): string[] {
+  return [...new Set(this.products.map(p => p.category))];
+}
+
+get filteredProducts(): Product[] {
+  if (!this.selectedCategory) {
+    return this.products;
+  }
+
+  return this.products.filter(
+    p => p.category === this.selectedCategory
+  );
 }
 
 get totalStock(): number {
-  return this.products.reduce((sum, p) => sum + p.stock, 0);
+  return this.filteredProducts.reduce((sum, p) => sum + p.stock, 0);
 }
 
 get averagePrice(): number {
-  if (this.products.length === 0) return 0;
+  if (this.filteredProducts.length === 0) return 0;
 
-  const total = this.products.reduce((sum, p) => sum + p.price, 0);
-  return Math.round(total / this.products.length);
+  const total = this.filteredProducts.reduce(
+    (sum, p) => sum + p.price,
+    0
+  );
+
+  return Math.round(total / this.filteredProducts.length);
 }
 
   showMessage(message: string): void {
