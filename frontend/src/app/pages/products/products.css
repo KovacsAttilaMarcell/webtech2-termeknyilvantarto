@@ -195,3 +195,47 @@ button mat-icon {
         width: 100%;
     }
 }
+
+.category-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Elektronika */
+.electronics-chip {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+/* Irodaszer */
+.office-chip {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+/* Játék */
+.games-chip {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Ruházat */
+.clothing-chip {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+/* Élelmiszer */
+.food-chip {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* Egyéb */
+.default-chip {
+    background: #eceff1;
+    color: #455a64;
+}

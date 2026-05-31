@@ -127,6 +127,28 @@ get categories(): string[] {
   return [...new Set(this.products.map(p => p.category))];
 }
 
+getCategoryClass(category: string): string {
+  switch (category.toLowerCase()) {
+    case 'elektronika':
+      return 'electronics-chip';
+
+    case 'játék':
+      return 'games-chip';
+      
+    case 'ruházat':
+      return 'clothing-chip';
+
+    case 'irodaszer':
+      return 'office-chip';
+
+    case 'élelmiszer':
+      return 'food-chip';
+
+    default:
+      return 'default-chip';
+  }
+}
+
 get filteredProducts(): Product[] {
   if (!this.selectedCategory) {
     return this.products;
