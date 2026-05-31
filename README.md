@@ -1,1 +1,1 @@
-# webtech2-termeknyilvantarto
+# Web technológiák II. - Terméknyilvántartó rendszer
